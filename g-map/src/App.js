@@ -1,5 +1,5 @@
 import React,{useEffect,useState} from 'react'
-import { GoogleMap,useJsApiLoader} from '@react-google-maps/api';
+import { GoogleMap,useJsApiLoader,Marker} from '@react-google-maps/api';
 
 
 
@@ -7,7 +7,7 @@ function App() {
  
 
   const {isLoaded} = useJsApiLoader({
-    googleMapsApiKey:"AIzaSyBlg2ZY305ZzwA6hqUmuarY5SK8FUtTPIM",
+    googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
     })                     // The google map api key is connected
 
 
@@ -29,11 +29,12 @@ function App() {
   {   isLoaded &&  <GoogleMap
          mapContainerStyle={containerStyle}
           center={{ lat: 10.8505, lng: 76.2711 }}
-          zoom={7}
+          zoom={5}
           >
          
       
-              
+         <Marker  key={Math.random()} title={'drag to move'} position={{ lat: 14.756795, lng: 76.954298 }}/>
+         <Marker  key={Math.random()} title={'drag to move'} position={{ lat: 14.756795, lng: 77.954298 }}/>
              
                
                 
